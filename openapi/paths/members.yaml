@@ -1,0 +1,21 @@
+post:
+  summary: Register a new library member
+  operationId: registerMember
+  tags:
+    - Members
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Member.yaml
+        examples:
+          newMember:
+            summary: New member
+            value:
+              full_name: Jane Doe
+              email: jane.doe@example.com
+              membership_date: '2023-10-27'
+  responses:
+    '201':
+      description: Member registered

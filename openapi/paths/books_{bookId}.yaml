@@ -1,0 +1,28 @@
+get:
+  summary: Get book details
+  operationId: getBook
+  tags:
+    - Books
+  parameters:
+    - name: bookId
+      in: path
+      required: true
+      schema:
+        type: string
+        format: uuid
+  responses:
+    '200':
+      description: Detailed book information
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Book.yaml
+          examples:
+            classicNovel:
+              summary: Classic novel
+              value:
+                id: b123
+                title: The Great Gatsby
+                author: F. Scott Fitzgerald
+                isbn: '9780743273565'
+                available_copies: 5

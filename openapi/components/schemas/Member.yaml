@@ -1,0 +1,13 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+  full_name:
+    type: string
+  email:
+    type: string
+    format: email
+  membership_date:
+    type: string
+    format: date

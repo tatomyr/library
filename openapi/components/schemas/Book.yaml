@@ -1,0 +1,14 @@
+type: object
+properties:
+  id:
+    type: string
+    readOnly: true
+  title:
+    type: string
+  author:
+    type: string
+  isbn:
+    type: string
+  available_copies:
+    type: integer
+    minimum: 0

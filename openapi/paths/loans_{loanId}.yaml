@@ -1,0 +1,45 @@
+patch:
+  summary: Return a borrowed book
+  operationId: returnBook
+  tags:
+    - Loans
+  description: Set the loan status to `returned` to return the book.
+  parameters:
+    - name: loanId
+      in: path
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+          properties:
+            status:
+              type: string
+              const: returned
+        examples:
+          returnLoan:
+            summary: Member returns a book
+            value:
+              status: returned
+  responses:
+    '200':
+      description: Book returned successfully
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Loan.yaml
+          examples:
+            returnedLoan:
+              summary: Returned loan
+              value:
+                id: l789
+                book_id: b123
+                member_id: m456
+                due_date: '2023-11-27'
+                status: returned

@@ -1,0 +1,51 @@
+get:
+  summary: List all books
+  operationId: listBooks
+  tags:
+    - Books
+  description: Retrieve a paginated list of books in the catalog.
+  parameters:
+    - name: genre
+      in: query
+      schema:
+        type: string
+  responses:
+    '200':
+      description: A list of books
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: ../components/schemas/Book.yaml
+          examples:
+            catalog:
+              summary: Catalog with one book
+              value:
+                - id: b123
+                  title: The Great Gatsby
+                  author: F. Scott Fitzgerald
+                  isbn: '9780743273565'
+                  available_copies: 5
+post:
+  summary: Add a new book
+  operationId: addBook
+  tags:
+    - Books
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/schemas/Book.yaml
+        examples:
+          classicNovel:
+            summary: Classic novel
+            value:
+              title: The Great Gatsby
+              author: F. Scott Fitzgerald
+              isbn: '9780743273565'
+              available_copies: 5
+  responses:
+    '201':
+      description: Book created

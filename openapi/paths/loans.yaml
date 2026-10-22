@@ -1,0 +1,41 @@
+post:
+  summary: Checkout a book
+  operationId: checkoutBook
+  tags:
+    - Loans
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - bookId
+            - memberId
+          properties:
+            bookId:
+              type: string
+            memberId:
+              type: string
+        examples:
+          checkout:
+            summary: Member borrows a book
+            value:
+              bookId: b123
+              memberId: m456
+  responses:
+    '201':
+      description: Loan record created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/schemas/Loan.yaml
+          examples:
+            activeLoan:
+              summary: Active loan
+              value:
+                id: l789
+                book_id: b123
+                member_id: m456
+                due_date: '2023-11-27'
+                status: active

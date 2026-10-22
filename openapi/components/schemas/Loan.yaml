@@ -1,0 +1,17 @@
+type: object
+properties:
+  id:
+    type: string
+  book_id:
+    type: string
+  member_id:
+    type: string
+  due_date:
+    type: string
+    format: date
+  status:
+    type: string
+    enum:
+      - active
+      - returned
+      - overdue

@@ -1,0 +1,33 @@
+openapi: 3.2.0
+info:
+  title: Global Library Management API
+  version: 1.0.0
+  description: |-
+    A sample REST API for a library. It is placeholder content: the server at `api.example.com` does not exist.
+
+    The API has three resources:
+
+    - **Books**: the catalog and the inventory of each title.
+    - **Members**: the people who borrow books.
+    - **Loans**: the records of books that members borrow and return.
+servers:
+  - url: https://api.example.com
+    description: Sandbox server
+tags:
+  - name: Books
+    description: Operations related to books
+  - name: Members
+    description: Operations related to library members
+  - name: Loans
+    description: Operations related to book loans
+paths:
+  /books:
+    $ref: paths/books.yaml
+  /books/{bookId}:
+    $ref: paths/books_{bookId}.yaml
+  /members:
+    $ref: paths/members.yaml
+  /loans:
+    $ref: paths/loans.yaml
+  /loans/{loanId}:
+    $ref: paths/loans_{loanId}.yaml
